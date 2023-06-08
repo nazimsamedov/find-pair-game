@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  font-family: Tahoma;
+  background: url(img/background.jpg) no-repeat center/cover;
+}
+
+
+.container {
+  margin: 0 auto;
+}
+
+.play-area {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: rgba(37, 55, 67, 0.7);
+  border-radius: 5px;
+  perspective: 1500px;
+}
+
+.card {
+  position: relative;
+  width: 70px;
+  height: 100px;
+  margin: 10px;
+  display: flex;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: all .6s;
+}
+
+.card:active {
+  transform: scale(1.1);
+  transition: all .3s;
+}
+
+.turned {
+  transform: rotateY(180deg);
+}
+
+.card__front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  border-radius: 5px;
+  background: url(img/card-front.jpg) no-repeat center/cover;
+  transform: rotateY(180deg);
+}
+
+.card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: url(img/card.jpg) no-repeat center/cover;
+  backface-visibility: hidden;
+}
+
+/* modal */
+
+.modal-start,
+.modal-final {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+  overflow: auto;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+  transition: all .3s ease;
+}
+
+.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-start__wrap,
+.modal-final__wrap {
+  position: relative;
+  max-width: 600px;
+  width: 80%;
+  margin: 80px auto 0;
+  padding: 80px 60px;
+  background: #173437;
+  outline: 2px solid #666;
+  outline-offset: -5px;
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.modal-start__title,
+.modal-final__title {
+  text-align: center;
+  margin: 0 0 60px;
+  color: #fff;
+}
+
+.modal-start__btn-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-start__btn,
+.modal-final__btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  outline: 1px solid #666;
+  outline-offset: -2px;
+}
+
+.modal-final__btn {
+  display: block;
+  margin: 0 auto;
+}
+
+/* timer */
+
+.timer {
+  position: absolute;
+  padding: 0 10px;
+  top: 5%;
+  left: 15%;
+  font-size: 60px;
+  color: #fff;
+  border-radius: 5px;
+  background: rgba(37, 55, 67, 0.7);
+}
